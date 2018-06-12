@@ -2,6 +2,12 @@
   "version": "0.1.0",
   "id": "@shopgate/youtube-pdp",
   "components": [
+    {
+      "id": "YouTubeVideo",
+      "type": "portals",
+      "path": "frontend/YouTubeVideo",
+      "target": "product.description.before"
+    }
   ],
   "configuration": {
   }
