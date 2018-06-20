@@ -7,7 +7,7 @@ import { getCurrentYoutubeUrl } from './selectors';
  * @return {Object} The extended component props.
  */
 const mapStateToProps = state => ({
-  //url: getCurrentYoutubeUrl(state),
+  url: getCurrentYoutubeUrl(state),
 });
 
 /**

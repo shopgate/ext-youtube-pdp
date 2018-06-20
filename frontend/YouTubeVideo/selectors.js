@@ -15,7 +15,7 @@ export const getCurrentYoutubeUrl = createSelector(
       return null;
     }
 
-    return (entry.properties.Youtube || null);
+    return (entry.properties.Youtube || null);
   }
 );
 

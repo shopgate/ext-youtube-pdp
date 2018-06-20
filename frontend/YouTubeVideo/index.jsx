@@ -13,8 +13,7 @@ class YouTubeVideo extends Component {
   };
 
   static defaultProps = {
-    // TODO:
-    url: 'https://www.youtube.com/embed/aTKyjuhmZNo',
+    url: null,
   };
 
   componentDidMount() {
@@ -28,13 +27,14 @@ class YouTubeVideo extends Component {
    * @returns {JSX}
    */
   render() {
-    if (this.props.url === null) {
+    if (!this.props.url) {
       return null;
     }
 
     return (
       <div className={styles.container} ref={(element) => { this.container = element; }}>
         <iframe
+          title="youtube video"
           className={styles.video}
           width="560"
           height="315"
