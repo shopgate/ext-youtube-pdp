@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { getCurrentProductId, getProductPropertiesState } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { videoProperty } from '../config';
 
 /**
  * Selects the youtube url from the current product.
@@ -15,7 +16,7 @@ export const getCurrentYoutubeUrl = createSelector(
       return null;
     }
 
-    return (entry.properties.Youtube || null);
+    return (entry.properties[videoProperty] || null);
   }
 );
 

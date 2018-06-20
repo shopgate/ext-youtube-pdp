@@ -10,5 +10,16 @@
     }
   ],
   "configuration": {
+    "videoProperty": {
+      "type": "bigApi",
+      "destination": "frontend",
+      "default": "Youtube",
+      "params": {
+        "method": "GET",
+        "service": "config",
+        "path": "/v1/shop/%(shopId)s/sgc_extension_settings?parsed=true",
+        "key": "value.@shopgate/youtube-pdp.videoProperty"
+      }
+    }
   }
 }

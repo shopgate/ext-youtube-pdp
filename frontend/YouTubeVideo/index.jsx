@@ -5,7 +5,7 @@ import connect from './connector';
 import styles from './style';
 
 /**
- * The ChipLayout component.
+ * The YouTubeVideo component.
  */
 class YouTubeVideo extends Component {
   static propTypes = {
@@ -16,6 +16,9 @@ class YouTubeVideo extends Component {
     url: null,
   };
 
+  /**
+   * Handle YouTubeVideo on did mount
+   */
   componentDidMount() {
     if (this.container) {
       handleYouTube(this.container);
