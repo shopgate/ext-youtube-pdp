@@ -16,7 +16,8 @@ export const getCurrentYoutubeUrl = createSelector(
       return null;
     }
 
-    return (entry.properties[videoProperty] || null);
+    const videoProp = entry.properties.find(prop => prop.label === videoProperty) || {};
+
+    return (videoProp.value || null);
   }
 );
-
