@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { handleYouTube } from '@shopgate/pwa-common/helpers/html/handleDOM';
+import { embeddedMedia } from '@shopgate/pwa-common/collections';
 import connect from './connector';
 import styles from './style';
 
@@ -21,7 +21,13 @@ class YouTubeVideo extends Component {
    */
   componentDidMount() {
     if (this.container) {
-      handleYouTube(this.container);
+      embeddedMedia.add(this.container);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.container) {
+      embeddedMedia.remove(this.container);
     }
   }
 
