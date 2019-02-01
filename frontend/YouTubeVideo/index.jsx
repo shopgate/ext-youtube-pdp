@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withPageProductId } from '@shopgate/pwa-extension-kit/connectors';
 import { embeddedMedia } from '@shopgate/pwa-common/collections';
 import connect from './connector';
 import styles from './style';
@@ -57,4 +58,4 @@ class YouTubeVideo extends Component {
   }
 }
 
-export default connect(YouTubeVideo);
+export default withPageProductId(connect(YouTubeVideo));
