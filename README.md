@@ -4,6 +4,49 @@
 
 Shows a youtube video on the product detail page.
 
+## Configuration
+
+Currently it's possible to configure a Youtube Video which is rendered on the Product Detail Page.
+
+The configuration is done in the deployment process, as an extension config.
+
+Product Detail Page configuration is a string to cofigure the portal position.
+```json
+{
+    "portalName": "product.description.after"
+```
+
+## Available portal positions
+
+```
+{
+  "product.header.before"
+  "product.header.after"
+  "product.name.before"
+  "product.name.after"
+  "product.info.before"
+  "product.info.after"
+  "product.shipping.before"
+  "product.shipping.after"
+  "product.availability.before"
+  "product.availability.after"
+  "product.stock-info.before"
+  "product.stock-info.after"
+  "product.price-info.before"
+  "product.price-info.after"
+  "product.description.before"
+  "product.description.after"
+  "product.price.before"
+  "product.price.after"
+  "product.price-striked.before"
+  "product.price-striked.after"
+  "product.properties.before"
+  "product.properties.after"
+  "product.reviews.before"
+  "product.reviews.after"
+```
+
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) file for more information.
