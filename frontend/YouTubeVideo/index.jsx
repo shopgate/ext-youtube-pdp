@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withPageProductId } from '@shopgate/pwa-extension-kit/connectors';
+import { withCurrentProduct } from '@shopgate/engage/core';
 import { embeddedMedia } from '@shopgate/pwa-common/collections';
 import connect from './connector';
 import styles from './style';
+import getConfig from '../helpers/getConfig';
+
+const { portalName } = getConfig();
 
 /**
  * The YouTubeVideo component.
  */
 class YouTubeVideo extends Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
     url: PropTypes.string,
   };
 
@@ -26,6 +30,9 @@ class YouTubeVideo extends Component {
     }
   }
 
+  /**
+   * Handle YouTubeVideo on will unmount
+   */
   componentWillUnmount() {
     if (this.container) {
       embeddedMedia.remove(this.container);
@@ -41,21 +48,27 @@ class YouTubeVideo extends Component {
       return null;
     }
 
+    if (this.props.name !== portalName) {
+      return null;
+    }
+
     return (
-      <div className={styles.container} ref={(element) => { this.container = element; }}>
-        <iframe
-          title="youtube video"
-          className={styles.video}
-          width="560"
-          height="315"
-          src={this.props.url}
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
+      <div className={styles.main}>
+        <div className={styles.container} ref={(element) => { this.container = element; }}>
+          <iframe
+            title="youtube video"
+            className={styles.video}
+            width="560"
+            height="315"
+            src={this.props.url}
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
       </div>
     );
   }
 }
 
-export default withPageProductId(connect(YouTubeVideo));
+export default withCurrentProduct(connect(YouTubeVideo));
