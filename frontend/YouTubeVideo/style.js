@@ -1,5 +1,9 @@
 import { css } from 'glamor';
 
+const main = css({
+  paddingBottom: 25,
+});
+
 const container = css({
   position: 'relative',
   paddingBottom: '56.25%', /* 16:9 */
@@ -16,6 +20,7 @@ const video = css({
 });
 
 export default {
+  main,
   container,
   video,
 };

@@ -1,12 +1,37 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "id": "@shopgate/youtube-pdp",
   "components": [
     {
       "id": "Video",
       "type": "portals",
       "path": "frontend/YouTubeVideo",
-      "target": "product.description.before"
+      "target": [
+        "product.header.before",
+        "product.header.after",
+        "product.name.before",
+        "product.name.after",
+        "product.info.before",
+        "product.info.after",
+        "product.shipping.before",
+        "product.shipping.after",
+        "product.availability.before",
+        "product.availability.after",
+        "product.stock-info.before",
+        "product.stock-info.after",
+        "product.price-info.before",
+        "product.price-info.after",
+        "product.description.before",
+        "product.description.after",
+        "product.price.before",
+        "product.price.after",
+        "product.price-striked.before",
+        "product.price-striked.after",
+        "product.properties.before",
+        "product.properties.after",
+        "product.reviews.before",
+        "product.reviews.after"
+      ]
     }
   ],
   "configuration": {
@@ -19,6 +44,16 @@
         "service": "config",
         "path": "/v1/shop/%(shopId)s/sgc_extension_settings?parsed=true",
         "key": "value.@shopgate/youtube-pdp.videoProperty"
+      }
+    },
+    "portalName": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "product.description.after",
+      "params": {
+        "type": "text",
+        "label": "Product page settings (see README)",
+        "required": false
       }
     }
   }
