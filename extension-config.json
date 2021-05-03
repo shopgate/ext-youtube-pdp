@@ -51,7 +51,7 @@
       "destination": "frontend",
       "default": "product.description.after",
       "params": {
-        "type": "json",
+        "type": "text",
         "label": "Product page settings (see README)",
         "required": false
       }
