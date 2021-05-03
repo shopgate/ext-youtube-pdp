@@ -4,9 +4,7 @@ import { withCurrentProduct } from '@shopgate/engage/core';
 import { embeddedMedia } from '@shopgate/pwa-common/collections';
 import connect from './connector';
 import styles from './style';
-import getConfig from '../helpers/getConfig';
-
-const { portalName } = getConfig();
+import { portalName } from '../config';
 
 /**
  * The YouTubeVideo component.
