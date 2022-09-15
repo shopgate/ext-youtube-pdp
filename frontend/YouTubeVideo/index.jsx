@@ -4,7 +4,7 @@ import { withCurrentProduct } from '@shopgate/engage/core';
 import { embeddedMedia } from '@shopgate/pwa-common/collections';
 import connect from './connector';
 import styles from './style';
-import { portalName, videoIdPrefix, videoId } from '../config';
+import { portalName } from '../config';
 
 /**
  * The YouTubeVideo component.
@@ -42,14 +42,14 @@ class YouTubeVideo extends Component {
    * @returns {JSX}
    */
   render() {
-    if (!this.props.url && (!videoId || !videoIdPrefix)) {
+    if (!this.props.url) {
       return null;
     }
 
     if (this.props.name !== portalName) {
       return null;
     }
-    console.log(`${videoIdPrefix}${videoId}`)
+
     return (
       <div className={styles.main}>
         <div className={styles.container} ref={(element) => { this.container = element; }}>
@@ -58,7 +58,7 @@ class YouTubeVideo extends Component {
             className={styles.video}
             width="560"
             height="315"
-            src={this.props.url? this.props.url: `${videoIdPrefix}${videoId}`}
+            src={this.props.url}
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
