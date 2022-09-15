@@ -46,10 +46,26 @@
         "key": "value.@shopgate/youtube-pdp.videoProperty"
       }
     },
+    "videoId": {
+      "type": "static",
+      "destination": "frontend",
+      "default": null,
+      "params": {
+        "value": "QUf9pk2o0qs"
+      }
+    },
+    "videoIdPrefix": {
+      "type": "static",
+      "destination": "frontend",
+      "default": null,
+      "params": {
+        "value": "https://www.youtube.com/embed/"
+      }
+    },
     "portalName": {
       "type": "admin",
       "destination": "frontend",
-      "default": "product.description.after",
+      "default": "product.description.before",
       "params": {
         "type": "text",
         "label": "Product page settings (see README)",
