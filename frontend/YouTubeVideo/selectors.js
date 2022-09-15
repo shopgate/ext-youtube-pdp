@@ -18,6 +18,12 @@ export const getCurrentYoutubeUrl = createSelector(
 
     const videoProp = entry.properties.find(prop => prop.label === videoProperty) || {};
 
+    // If we just receive a youtube videos's ID we have to append the embed
+    // youtube url before it so that it can be played in the iframe
+    if (videoProp.value && !videoProp.value.includes('https://www.youtube.com')) {
+      return `https://www.youtube.com/embed/${videoProp.value}`;
+    }
+
     return (videoProp.value || null);
   }
 );
