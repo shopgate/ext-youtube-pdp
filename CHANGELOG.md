@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
+## [2.3.0] - 2022-09-15
+### Changed
+- Option to add a headline to the YouTube container
+- Configuration to add a spacing on both sides
+
 ## [2.2.0] - 2022-09-15
 ### Changed
 - Video property value does not need to be a complete Youtube URL anymore, but just the ID

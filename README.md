@@ -10,10 +10,20 @@ Currently it's possible to configure a Youtube Video which is rendered on the Pr
 
 The configuration is done in the deployment process, as an extension config.
 
-Product Detail Page configuration is a string to cofigure the portal position.
+- `videoProperty`: Property name, which includes the YouTube URL/ID
+- `portalName`: String to configure the portal position
+- `showSpacingOnTheSides`: Adds a spacing on both sides of the YouTube container. Default: `false`
+- `headlineText`: Adds a headline to the YouTube container. Default: `product.description.after`
+
+## Example
+
 ```json
 {
-    "portalName": "product.description.after"
+  "videoProperty": "Youtube",
+  "portalName": "product.description.after",
+  "showSpacingOnTheSides": true,
+  "headlineText": "Awesome YouTube Video"
+}
 ```
 
 ## Available portal positions
