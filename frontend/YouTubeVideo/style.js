@@ -1,10 +1,11 @@
 import { css } from 'glamor';
-import { showSpacingOnTheSides } from '../config';
+import { addPaddingAroundVideo } from '../config';
 
 const main = css({
-  paddingBottom: 25,
-  paddingLeft: showSpacingOnTheSides ? 16 : 0,
-  paddingRight: showSpacingOnTheSides ? 16 : 0,
+  paddingTop: addPaddingAroundVideo ? 16 : 0,
+  paddingBottom: addPaddingAroundVideo ? 16 : 25,
+  paddingLeft: addPaddingAroundVideo ? 16 : 0,
+  paddingRight: addPaddingAroundVideo ? 16 : 0,
 });
 
 const container = css({

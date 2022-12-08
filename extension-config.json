@@ -1,5 +1,5 @@
 {
-  "version": "2.3.0",
+  "version": "2.3.1",
   "id": "@shopgate/youtube-pdp",
   "components": [
     {
@@ -56,12 +56,12 @@
         "required": false
       }
     },
-    "showSpacingOnTheSides": {
+    "addPaddingAroundVideo": {
       "type": "admin",
       "default": false,
       "destination": "frontend",
       "params": {
-        "label": "Add a spacing on both sides of the YouTube container",
+        "label": "Adds padding around the YouTube container",
         "type": "checkbox"
       }
     },
