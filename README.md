@@ -12,7 +12,7 @@ The configuration is done in the deployment process, as an extension config.
 
 - `videoProperty`: Property name, which includes the YouTube URL/ID
 - `portalName`: String to configure the portal position
-- `showSpacingOnTheSides`: Adds a spacing on both sides of the YouTube container. Default: `false`
+- `addPaddingAroundVideo`: Adds some padding around the YouTube container. Default: `false`
 - `headlineText`: Adds a headline to the YouTube container. Default: `product.description.after`
 
 ## Example
@@ -21,7 +21,7 @@ The configuration is done in the deployment process, as an extension config.
 {
   "videoProperty": "Youtube",
   "portalName": "product.description.after",
-  "showSpacingOnTheSides": true,
+  "addPaddingAroundVideo": true,
   "headlineText": "Awesome YouTube Video"
 }
 ```

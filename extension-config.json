@@ -61,7 +61,7 @@
       "default": false,
       "destination": "frontend",
       "params": {
-        "label": "Adds padding around the YouTube container",
+        "label": "Adds some padding around the YouTube container",
         "type": "checkbox"
       }
     },
