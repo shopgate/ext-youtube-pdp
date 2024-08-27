@@ -59,7 +59,7 @@ typings/
 
 # IDE
 .idea
-
+.DS_Store
 package-lock.json
 coverage/
 config.json

@@ -1,75 +1,80 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { withCurrentProduct } from '@shopgate/engage/core';
-import { embeddedMedia } from '@shopgate/pwa-common/collections';
+import { withCurrentProduct, embeddedMedia } from '@shopgate/engage/core';
 import connect from './connector';
 import styles from './style';
 import { portalName, headlineText } from '../config';
+import ConsentMessage from './ConsentMessage';
 
 /**
  * The YouTubeVideo component.
+ * @param {Object} props Component props
+ * @returns {JSX.Element}
  */
-class YouTubeVideo extends Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    url: PropTypes.string,
-  };
+const YouTubeVideo = ({
+  name,
+  url,
+  comfortCookiesAccepted,
+}) => {
+  const containerRef = useRef();
 
-  static defaultProps = {
-    url: null,
-  };
-
-  /**
-   * Handle YouTubeVideo on did mount
-   */
-  componentDidMount() {
-    if (this.container) {
-      embeddedMedia.add(this.container);
+  useEffect(() => {
+    if (!containerRef.current) {
+      return undefined;
     }
+
+    // Linter proposal when refs are referenced in useEffect cleanup functions
+    const refCopy = containerRef.current;
+
+    embeddedMedia.add(refCopy);
+
+    return () => {
+      embeddedMedia.remove(refCopy);
+    };
+  }, []);
+
+  if (!url) {
+    return null;
   }
 
-  /**
-   * Handle YouTubeVideo on will unmount
-   */
-  componentWillUnmount() {
-    if (this.container) {
-      embeddedMedia.remove(this.container);
-    }
+  if (name !== portalName) {
+    return null;
   }
 
-  /**
-   * Renders the component.
-   * @returns {JSX}
-   */
-  render() {
-    if (!this.props.url) {
-      return null;
-    }
-
-    if (this.props.name !== portalName) {
-      return null;
-    }
-
-    return (
-      <div>
-        { headlineText ? <h1 className={styles.headline}>{headlineText}</h1> : null }
-        <div className={styles.main}>
-          <div className={styles.container} ref={(element) => { this.container = element; }}>
+  return (
+    <div>
+      { headlineText ? <h1 className={styles.headline}>{headlineText}</h1> : null }
+      <div className={styles.main}>
+        <div className={styles.container} ref={containerRef}>
+          { comfortCookiesAccepted ? (
             <iframe
               title="youtube video"
               className={styles.video}
               width="560"
               height="315"
-              src={this.props.url}
+              src={url}
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
             />
-          </div>
+          ) : (
+            <ConsentMessage />
+          )}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+YouTubeVideo.propTypes = {
+  name: PropTypes.string.isRequired,
+  comfortCookiesAccepted: PropTypes.bool,
+  url: PropTypes.string,
+};
+
+YouTubeVideo.defaultProps = {
+  url: null,
+  comfortCookiesAccepted: false,
+};
 
 export default withCurrentProduct(connect(YouTubeVideo));
