@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getCurrentProductId, getProductPropertiesState } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getCurrentProductId, getProductPropertiesState } from '@shopgate/engage/product';
 import { videoProperty } from '../config';
 
 /**

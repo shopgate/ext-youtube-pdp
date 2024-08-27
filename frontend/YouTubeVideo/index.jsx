@@ -12,7 +12,6 @@ import ConsentMessage from './ConsentMessage';
  * @returns {JSX.Element}
  */
 const YouTubeVideo = ({
-  name,
   url,
   comfortCookiesAccepted,
 }) => {
@@ -34,10 +33,6 @@ const YouTubeVideo = ({
   }, []);
 
   if (!url) {
-    return null;
-  }
-
-  if (name !== portalName) {
     return null;
   }
 
@@ -67,7 +62,6 @@ const YouTubeVideo = ({
 };
 
 YouTubeVideo.propTypes = {
-  name: PropTypes.string.isRequired,
   comfortCookiesAccepted: PropTypes.bool,
   url: PropTypes.string,
 };
@@ -77,4 +71,23 @@ YouTubeVideo.defaultProps = {
   comfortCookiesAccepted: false,
 };
 
-export default withCurrentProduct(connect(YouTubeVideo));
+const ConnectedComponent = withCurrentProduct(connect(YouTubeVideo));
+
+/**
+ * Wrapper component to avoid unnecessary rendering of the actual component for unwanted portals.
+ * @param {Object} props Component props
+ * @returns {JSX.Element}
+ */
+const ComponentWrapper = ({ name, ...props }) => {
+  if (name !== portalName) {
+    return null;
+  }
+
+  return (<ConnectedComponent {...props}  />)
+};
+
+ComponentWrapper.propTypes = {
+  name: PropTypes.string.isRequired,
+}
+
+export default ComponentWrapper;
