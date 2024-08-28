@@ -83,11 +83,11 @@ const ComponentWrapper = ({ name, ...props }) => {
     return null;
   }
 
-  return (<ConnectedComponent {...props}  />)
+  return (<ConnectedComponent {...props} />);
 };
 
 ComponentWrapper.propTypes = {
   name: PropTypes.string.isRequired,
-}
+};
 
 export default ComponentWrapper;
