@@ -1,12 +1,20 @@
 import { connect } from 'react-redux';
-import { getAreComfortCookiesAccepted } from '@shopgate/engage/tracking/selectors';
 import { getCurrentYoutubeUrl } from './selectors';
 
-/**
- * Provide fallback for consent selector when deployed with a PWA version that has no support yet.
- * @returns {boolean}
- */
-const getConsent = getAreComfortCookiesAccepted || (() => true);
+let getAreComfortCookiesAccepted;
+
+try {
+  // Try to import cookie consent related modules. "require()" is used since the currently deployed
+  // PWA might not have the required modules implemented yet.
+
+  /* eslint-disable eslint-comments/no-unlimited-disable */
+  /* eslint-disable */
+  ({ getAreComfortCookiesAccepted } = require('@shopgate/engage/tracking/selectors'));
+  /* eslint-enable  */
+} catch (e) {
+  // Configure fallbacks in case of an import error
+  getAreComfortCookiesAccepted = () => true;
+}
 
 /**
  * Maps the contents of the state to the component props.
@@ -15,7 +23,7 @@ const getConsent = getAreComfortCookiesAccepted || (() => true);
  * @return {Object} The extended component props.
  */
 const mapStateToProps = (state, props) => ({
-  comfortCookiesAccepted: getConsent(state),
+  comfortCookiesAccepted: getAreComfortCookiesAccepted(state),
   url: getCurrentYoutubeUrl(state, props),
 });
 

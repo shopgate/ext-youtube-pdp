@@ -1,9 +1,22 @@
 import React from 'react';
 import { css } from 'glamor';
 import { I18n, Link } from '@shopgate/engage/components';
-import { PRIVACY_SETTINGS_PATTERN } from '@shopgate/engage/tracking/constants';
 import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 import { addPaddingAroundVideo } from '../config';
+
+let PRIVACY_SETTINGS_PATTERN = null;
+
+try {
+  // Try to import cookie consent related modules. "require()" is used since the currently deployed
+  // PWA might not have the required modules implemented yet.
+
+  /* eslint-disable eslint-comments/no-unlimited-disable */
+  /* eslint-disable */
+  ({ PRIVACY_SETTINGS_PATTERN } = require('@shopgate/engage/tracking/constants'));
+    /* eslint-enable  */
+} catch {
+  // Nothing to do here
+}
 
 const { colors } = themeConfig;
 
@@ -68,14 +81,22 @@ const Icon = () => (
  * since comfort cookies are not granted.
  * @returns {JSX.Element}
  */
-const ConsentMessage = () => (
-  <div className={classes.root}>
-    <Icon />
-    <I18n.Text string="shopgateProject-YouTubePdp.consentMessage" />
-    <Link className={classes.link} href={PRIVACY_SETTINGS_PATTERN}>
-      <I18n.Text string="shopgateProject-YouTubePdp.consentLink" />
-    </Link>
-  </div>
-);
+const ConsentMessage = () => {
+  if (!PRIVACY_SETTINGS_PATTERN) {
+    // Should never happen, since when consent imports are not possible, comfort cookies are granted
+    return null;
+  }
+
+  return (
+    <div className={classes.root}>
+      <Icon />
+      <I18n.Text string="shopgateProject-YouTubePdp.consentMessage" />
+      <Link className={classes.link} href={PRIVACY_SETTINGS_PATTERN}>
+        <I18n.Text string="shopgateProject-YouTubePdp.consentLink" />
+      </Link>
+    </div>
+  );
+};
 
 export default ConsentMessage;
+
