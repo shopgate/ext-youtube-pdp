@@ -10,10 +10,8 @@ try {
   // Try to import cookie consent related modules. "require()" is used since the currently deployed
   // PWA might not have the required modules implemented yet.
 
-  /* eslint-disable eslint-comments/no-unlimited-disable */
-  /* eslint-disable */
+  // eslint-disable-next-line global-require
   ({ PRIVACY_SETTINGS_PATTERN } = require('@shopgate/engage/tracking/constants'));
-    /* eslint-enable  */
 } catch {
   // Nothing to do here
 }
@@ -44,7 +42,7 @@ const classes = {
     },
   }),
   link: css({
-    textAlign: 'center',
+    textAlign: 'center !important',
     color: colors.primary,
     fontWeight: 500,
   }).toString(),

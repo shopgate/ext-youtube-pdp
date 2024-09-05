@@ -76,6 +76,7 @@ const ConnectedComponent = withCurrentProduct(connect(YouTubeVideo));
 /**
  * Wrapper component to avoid unnecessary rendering of the actual component for unwanted portals.
  * @param {Object} props Component props
+ * @param {string} props.name A portal name
  * @returns {JSX.Element}
  */
 const ComponentWrapper = ({ name, ...props }) => {

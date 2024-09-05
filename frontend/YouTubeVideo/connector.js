@@ -7,10 +7,8 @@ try {
   // Try to import cookie consent related modules. "require()" is used since the currently deployed
   // PWA might not have the required modules implemented yet.
 
-  /* eslint-disable eslint-comments/no-unlimited-disable */
-  /* eslint-disable */
+  // eslint-disable-next-line global-require
   ({ getAreComfortCookiesAccepted } = require('@shopgate/engage/tracking/selectors'));
-  /* eslint-enable  */
 } catch (e) {
   // Configure fallbacks in case of an import error
   getAreComfortCookiesAccepted = () => true;
