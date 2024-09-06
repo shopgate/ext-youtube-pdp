@@ -24,12 +24,12 @@ const classes = {
     height: '100%',
     width: '100%',
     padding: 16,
-    fontSize: '0.9rem',
+    fontSize: '0.875rem',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     textAlign: 'center',
-    gap: 24,
+    gap: 16,
     background: colors.shade10,
     border: `1px solid ${colors.shade5}`,
     ...!addPaddingAroundVideo ? {
@@ -48,7 +48,7 @@ const classes = {
   }).toString(),
   icon: css({
     fill: colors.shade5,
-    height: 48,
+    height: 40,
   }),
 };
 
