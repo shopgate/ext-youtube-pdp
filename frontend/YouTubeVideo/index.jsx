@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withCurrentProduct, embeddedMedia } from '@shopgate/engage/core';
 import connect from './connector';
 import styles from './style';
-import { portalName, headlineText } from '../config';
+import { portalName, headlineText, useSandboxAttribute } from '../config';
 import ConsentMessage from './ConsentMessage';
 
 /**
@@ -51,6 +51,9 @@ const YouTubeVideo = ({
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
+              {...(useSandboxAttribute && {
+                sandbox: "allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation",
+              })}
             />
           ) : (
             <ConsentMessage />
