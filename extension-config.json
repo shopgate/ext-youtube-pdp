@@ -1,5 +1,5 @@
 {
-  "version": "2.4.0",
+  "version": "2.5.0",
   "id": "@shopgate/youtube-pdp",
   "components": [
     {
@@ -142,6 +142,15 @@
       "params": {
         "label": "Add a headline to the YouTube container",
         "type": "text"
+      }
+    },
+    "useSandboxAttribute": {
+      "type": "admin",
+      "default": true,
+      "destination": "frontend",
+      "params": {
+        "label": "Use iframe sandbox attribute to prevent pop-ups",
+        "type": "checkbox"
       }
     }
   }
