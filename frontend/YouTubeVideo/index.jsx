@@ -52,7 +52,7 @@ const YouTubeVideo = ({
               allow="autoplay; encrypted-media"
               allowFullScreen
               {...(useSandboxAttribute && {
-                sandbox: "allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation",
+                sandbox: 'allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation',
               })}
             />
           ) : (
