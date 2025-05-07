@@ -39,10 +39,9 @@ function getYouTubeEmbedUrl(input, params = {}) {
       const embedUrl = new URL(input);
 
       // Merge new params into the existing query string, overriding duplicates
-      // eslint-disable-next-line no-restricted-syntax
-      for (const [key, value] of Object.entries(params)) {
+      Object.entries(params).forEach(([key, value]) => {
         embedUrl.searchParams.set(key, value);
-      }
+      });
 
       return embedUrl.toString();
     }
@@ -103,10 +102,9 @@ function getYouTubeEmbedUrl(input, params = {}) {
   const finalParams = { ...existingParams, ...params };
 
   // Apply all final query parameters to the embed URL
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of Object.entries(finalParams)) {
+  Object.entries(finalParams).forEach(([key, value]) => {
     embedUrl.searchParams.set(key, value);
-  }
+  });
 
   return embedUrl.toString();
 }
