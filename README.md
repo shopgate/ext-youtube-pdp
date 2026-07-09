@@ -8,16 +8,14 @@ Shows a youtube video on the product detail page.
 
 Currently it's possible to configure a YouTube video which is rendered on the Product Detail Page.
 
-The configuration is done in the deployment process, as an extension admin config.
+The configuration is managed as extension admin config. After updating to `2.7.0`, custom
+`videoProperty` values need to be set there instead of the shop config (bigAPI).
 
 - `videoProperty`: Product property name which contains the YouTube URL/ID. Default: `Youtube`
 - `portalName`: String to configure the portal position. Default: `product.description.after`
 - `addPaddingAroundVideo`: Adds some padding around the YouTube container. Default: `false`
-- `headlineText`: Adds a headline to the YouTube container. Default: empty
+- `headlineText`: Adds a headline to the YouTube container. Default: `""`
 - `useSandboxAttribute`: Uses the iframe sandbox attribute to prevent pop-ups. Default: `true`
-
-When updating from a version before `2.7.0`, move custom `videoProperty` values from the
-shop config (bigAPI) into the extension admin config.
 
 ## Example
 
