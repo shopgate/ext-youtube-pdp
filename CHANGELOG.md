@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.7.0 - 2026-07-09
+### Changed
+- `videoProperty` is now configured directly in the extension admin config instead of the shop config (bigAPI)
+- Custom `videoProperty` values need to be moved from the shop config to the extension admin config
+
 ## 2.6.0 - 2025-05-07
 ### Added
 - Rewrite of YouTube video URLs into standardized embed URLs
@@ -36,4 +41,3 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.0.0 - 2018-06-21
 ### Added
 - first implementation
-
