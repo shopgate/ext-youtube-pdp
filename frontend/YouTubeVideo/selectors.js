@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
 import { getCurrentProductId, getProductPropertiesState } from '@shopgate/engage/product';
-import { videoProperty } from '../config';
+import config from '../config.json';
+
+const { videoProperty } = config;
 
 /**
  * Generates a YouTube embed URL from either a full YouTube URL or a raw video ID.
@@ -81,7 +83,6 @@ function getYouTubeEmbedUrl(input, params = {}) {
       // Parse additional query string parameters if provided
       if (queryString) {
         const queryParams = new URLSearchParams(queryString);
-        // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of queryParams.entries()) {
           existingParams[key] = value;
         }
@@ -99,7 +100,10 @@ function getYouTubeEmbedUrl(input, params = {}) {
   const embedUrl = new URL(`https://www.youtube.com/embed/${videoId}`);
 
   // Merge existing parameters and override with explicit ones from `params`
-  const finalParams = { ...existingParams, ...params };
+  const finalParams = {
+    ...existingParams,
+    ...params,
+  };
 
   // Apply all final query parameters to the embed URL
   Object.entries(finalParams).forEach(([key, value]) => {

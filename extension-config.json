@@ -1,5 +1,5 @@
 {
-  "version": "2.6.0",
+  "version": "2.7.0",
   "id": "@shopgate/youtube-pdp",
   "components": [
     {
@@ -106,14 +106,13 @@
   ],
   "configuration": {
     "videoProperty": {
-      "type": "bigApi",
+      "type": "admin",
       "destination": "frontend",
       "default": "Youtube",
       "params": {
-        "method": "GET",
-        "service": "config",
-        "path": "/v1/shop/%(shopId)s/sgc_extension_settings?parsed=true",
-        "key": "value.@shopgate/youtube-pdp.videoProperty"
+        "type": "text",
+        "label": "Product property name that holds the YouTube URL/ID",
+        "required": false
       }
     },
     "portalName": {

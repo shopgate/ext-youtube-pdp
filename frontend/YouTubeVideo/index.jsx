@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { withCurrentProduct, embeddedMedia } from '@shopgate/engage/core';
 import connect from './connector';
 import styles from './style';
-import { portalName, headlineText, useSandboxAttribute } from '../config';
+import config from '../config.json';
 import ConsentMessage from './ConsentMessage';
+
+const { portalName, headlineText, useSandboxAttribute } = config;
 
 /**
  * The YouTubeVideo component.

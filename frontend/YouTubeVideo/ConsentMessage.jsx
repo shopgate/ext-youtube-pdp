@@ -2,7 +2,9 @@ import React from 'react';
 import { css } from 'glamor';
 import { I18n, Link } from '@shopgate/engage/components';
 import { themeConfig } from '@shopgate/pwa-common/helpers/config';
-import { addPaddingAroundVideo } from '../config';
+import config from '../config.json';
+
+const { addPaddingAroundVideo } = config;
 
 let PRIVACY_SETTINGS_PATTERN = null;
 
@@ -97,4 +99,3 @@ const ConsentMessage = () => {
 };
 
 export default ConsentMessage;
-

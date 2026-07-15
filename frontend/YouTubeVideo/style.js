@@ -1,5 +1,7 @@
 import { css } from 'glamor';
-import { addPaddingAroundVideo } from '../config';
+import config from '../config.json';
+
+const { addPaddingAroundVideo } = config;
 
 const main = css({
   paddingTop: addPaddingAroundVideo ? 16 : 0,
